@@ -265,6 +265,7 @@ def train(
         wandb_run_name=os.environ.get(
             "WANDB_NAME", os.path.basename(cfg.checkpoint.save_dir)
         ),
+        wandb_dir=cfg.checkpoint.save_dir,
     )
     progress.update_config(_flatten_config(cfg))
 
@@ -739,6 +740,7 @@ def validate(
                 wandb_run_name=os.environ.get(
                     "WANDB_NAME", os.path.basename(cfg.checkpoint.save_dir)
                 ),
+                wandb_dir=cfg.checkpoint.save_dir,
             )
 
             logger.info(
