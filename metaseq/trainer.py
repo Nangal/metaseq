@@ -406,7 +406,7 @@ class Trainer(object):
                     except Exception as e:
                         logger.exception(f"Asynchronous save failed: {e}")
 
-                torch.save(state_dict, filename)
+                torch.save(state_dict, filename, pickle_protocol=4)
                 if async_callback_fn is not None:
                     self.async_checkpoint.submit(perform_save)
             logger.info(f"Finished saving checkpoint to {filename}")
